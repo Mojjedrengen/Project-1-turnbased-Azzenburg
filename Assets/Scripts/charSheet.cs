@@ -7,7 +7,7 @@ using System.IO;
 
 public class charSheet : MonoBehaviour
 {
-    public character player;
+    public static character player;
     public Image img;
     public TextMeshProUGUI hp;
     public TextMeshProUGUI mp;
