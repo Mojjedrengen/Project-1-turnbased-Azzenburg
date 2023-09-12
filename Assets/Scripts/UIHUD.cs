@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class UIHUD : MonoBehaviour
 {
+    public GameObject pop;
+
     private int maxHp;
     private int maxMp;
     // Start is called before the first frame update
@@ -19,5 +22,14 @@ public class UIHUD : MonoBehaviour
     {
         GameObject.Find("HP").GetComponent<TextMeshProUGUI>().text = charSheet.player.hp + "/" + maxHp;
         GameObject.Find("MP").GetComponent<TextMeshProUGUI>().text = charSheet.player.mp + "/" + maxMp;
+
+        if (Input.GetKeyDown("i"))
+        {
+            pop.SetActive(true);
+        }
+        if (Input.GetKeyDown("escape"))
+        {
+            pop.SetActive(false);
+        }
     }
 }
