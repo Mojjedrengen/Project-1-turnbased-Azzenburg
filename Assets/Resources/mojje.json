@@ -2,5 +2,13 @@
     "hp": 100,
     "mp": 90,
     "role": 0,
-    "bio": "A fierce fire Wizard"
+    "bio": "A fierce fire Wizard",
+
+    "spell": [
+        {
+
+        }
+    ]
+
+
 }
