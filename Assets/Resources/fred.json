@@ -2,5 +2,14 @@
     "hp": 50,
     "mp": 140,
     "role": 2,
-    "bio": "A fierce  Necromancer"
+    "bio": "A fierce  Necromancer",
+    "spell": {
+        "name": "firebolt",
+        "power": 10,
+        "manacost": 10,
+        "level": 1,
+        "type": 0,
+        "target": 2,
+        "description": "Shoots a small fireball"
+    }
 }

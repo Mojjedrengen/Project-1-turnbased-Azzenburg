@@ -20,20 +20,32 @@ public class StatusHUD : MonoBehaviour
         
     }
 
-    public void SetStatusHUD(CharacterStatus status)
+    public void SetStatusHUD(CurrChar status)
     {
-        float currHealth = status.health;
-        float maxHealth = status.maxHealth;
-        float currMana = status.mana;
-        float maxMana = status.maxMana;
+        int currHealth = status.hp;
+        int maxHealth = status.maxHp;
+        int currMana = status.mp;
+        int maxMana = status.maxMp;
 
        GameObject.Find("HP").GetComponent<TextMeshProUGUI>().text = currHealth + "/" + maxHealth;
        GameObject.Find("MP").GetComponent<TextMeshProUGUI>().text = currMana + "/" + maxMana;
     }
 
-    public void SetHP(CharacterStatus status, float hp)
+    public void SetHP(CurrChar status, int hp)
     {
-        status.health -= hp;
+        status.hp -= hp;
         SetStatusHUD(status);
+    }
+    public void SetStatusHUDEnemy(CurrEnemy enemy)
+    {
+        int currHealth = enemy.hp;
+        int maxHealth = enemy.maxHp;
+
+        GameObject.Find("HP").GetComponent<TextMeshProUGUI>().text = currHealth + "/" + maxHealth;
+    }
+    public void SetEnemyHP(CurrEnemy enemy, int hp)
+    {
+        enemy.hp -= hp;
+        SetStatusHUDEnemy(enemy);
     }
 }

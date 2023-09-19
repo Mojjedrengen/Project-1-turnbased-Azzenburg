@@ -3,12 +3,13 @@
     "mp": 90,
     "role": 0,
     "bio": "A fierce fire Wizard",
-
-    "spell": [
-        {
-
-        }
-    ]
-
-
+    "spell": {
+        "name": "firebolt",
+        "power": 10,
+        "manacost": 10,
+        "level": 1,
+        "type": 0,
+        "target": 2,
+        "description": "Shoots a small fireball"
+    }
 }

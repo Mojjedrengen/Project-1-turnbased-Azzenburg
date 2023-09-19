@@ -179,14 +179,14 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1891211597}
-          m_TargetAssemblyTypeName: BattleSystemManager, Assembly-CSharp
+        - m_Target: {fileID: 1891211598}
+          m_TargetAssemblyTypeName: NewBattleSystemManager, Assembly-CSharp
           m_MethodName: OnAttackButtonPress
-          m_Mode: 1
+          m_Mode: 3
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
+            m_IntArgument: 1
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
@@ -412,7 +412,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 241092547}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 82d1363b2e5da6749857bcea3d2ce2b6, type: 3}
   m_Name: 
@@ -834,7 +834,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1042535869}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 82d1363b2e5da6749857bcea3d2ce2b6, type: 3}
   m_Name: 
@@ -1954,6 +1954,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1891211596}
   - component: {fileID: 1891211597}
+  - component: {fileID: 1891211598}
   m_Layer: 0
   m_Name: BattleSystem
   m_TagString: Untagged
@@ -1988,10 +1989,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e925d21f916f0146b66e81dbb9f6e75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
+  player: {fileID: 0}
   enemyBattlePosition: {fileID: 390938083}
   playerBattlePosition: {fileID: 1322570309}
   playerStatus: {fileID: 11400000, guid: 79ebe143508762f45b1b41a3170468b1, type: 2}
   enemyStatus: {fileID: 11400000, guid: 19f2404680962214aac3ffeba9df4c48, type: 2}
+  playerStatusHUD: {fileID: 1042535871}
+  enemyStatusHUD: {fileID: 241092549}
+  battleState: 0
+  hasClicked: 1
+--- !u!114 &1891211598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891211595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b9aba8b835c3214d892ed6a71d0ca34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1322570307}
+  enemy: {fileID: 390938081}
   playerStatusHUD: {fileID: 1042535871}
   enemyStatusHUD: {fileID: 241092549}
 --- !u!1 &1945493975

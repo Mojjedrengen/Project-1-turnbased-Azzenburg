@@ -2,5 +2,14 @@
     "hp": 70,
     "mp": 120,
     "role": 1,
-    "bio": "A fierce  Arcane wizard"
+    "bio": "A fierce  Arcane wizard",
+    "spell": {
+        "name": "firebolt",
+        "power": 10,
+        "manacost": 10,
+        "level": 1,
+        "type": 0,
+        "target": 2,
+        "description": "Shoots a small fireball"
+    }
 }

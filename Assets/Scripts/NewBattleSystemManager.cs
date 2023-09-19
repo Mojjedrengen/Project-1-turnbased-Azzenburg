@@ -1,24 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-/*
-//Help from https://pavcreations.com/turn-based-battle-and-transition-from-a-game-world-unity/
+
 public enum BattleState { START, PLAYERTURN, ENEMYTURN, WIN, LOST };
-
-public class BattleSystemManager : MonoBehaviour
+public class NewBattleSystemManager : MonoBehaviour
 {
-    private GameObject enemy;
-    private GameObject player;
-    
-    public Transform enemyBattlePosition;
-    public Transform playerBattlePosition;
+    public GameObject player;
+    public GameObject enemy;
 
-    public CharacterStatus playerStatus;
-    public CharacterStatus enemyStatus;
+    public static CurrChar currPlayer = new CurrChar();
+    public CurrEnemy currEnemy = new CurrEnemy();
 
     public StatusHUD playerStatusHUD;
     public StatusHUD enemyStatusHUD;
-    
+
     private BattleState battleState;
 
     private bool hasClicked = true;
@@ -33,22 +28,18 @@ public class BattleSystemManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     IEnumerator BeginBattle()
     {
-        // spawn Character on the platforms
-        enemy = Instantiate(enemyStatus.characterGameObject, enemyBattlePosition); enemy.SetActive(true);
-        player = Instantiate(playerStatus.characterGameObject, playerBattlePosition); player.SetActive(true);
-
         //makes them invisible in the start
         enemy.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
         player.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
 
         // Sets up the HUD
-        playerStatusHUD.SetStatusHUD(playerStatus);
-        enemyStatusHUD.SetStatusHUD(enemyStatus);
+        playerStatusHUD.SetStatusHUD(currPlayer);
+        enemyStatusHUD.SetStatusHUDEnemy(currEnemy);
 
         yield return new WaitForSeconds(1);
 
@@ -57,10 +48,10 @@ public class BattleSystemManager : MonoBehaviour
 
         yield return new WaitForSeconds(2);
 
-        // Player Turn!
+        // Player Tyrn!
         battleState = BattleState.PLAYERTURN;
 
-        // lets player do his or her turn
+        //lets player do their turn
         yield return StartCoroutine(PlayerTurn());
     }
 
@@ -68,14 +59,13 @@ public class BattleSystemManager : MonoBehaviour
     {
         float totalTransperencyPerStep = 1 / (float)steps;
 
-        for (int i=0; i<steps; i++)
+        for (int i = 0; i < steps; i++)
         {
             setSpriteOpacity(player, totalTransperencyPerStep);
             setSpriteOpacity(enemy, totalTransperencyPerStep);
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(0.05F);
         }
     }
-
     private void setSpriteOpacity(GameObject ob, float transPerStep)
     {
         Color currColor = ob.GetComponent<SpriteRenderer>().color;
@@ -93,16 +83,18 @@ public class BattleSystemManager : MonoBehaviour
         // so that player can click on 'attack' button
         hasClicked = false;
     }
-    public void OnAttackButtonPress()
-    {
-        // Don't allow player to click on "attack" button if its not his or hers turn
-        if (battleState != BattleState.PLAYERTURN)
-            return;
 
+    public void OnAttackButtonPress(int i)
+    {
+        // Don't allow player to click on "attack" button if its not their turn
+        if (battleState != BattleState.PLAYERTURN)
+        {
+            return;
+        }
         // allow only a single action per turn
         if (!hasClicked)
         {
-            StartCoroutine(PlayerAttack());
+            StartCoroutine(PlayerAttack(i));
 
             // block user from repeatedly 
             // pressing attack button  
@@ -110,21 +102,17 @@ public class BattleSystemManager : MonoBehaviour
         }
     }
 
-    IEnumerator PlayerAttack()
+    IEnumerator PlayerAttack(int i)
     {
-        // trigger the execution of attack animation
-        // in 'BattlePresence' animator
-        player.GetComponent<Animator>().SetTrigger("Attack");
-
         yield return new WaitForSeconds(2);
 
         // decrease enemy health by a fixed
         // amount of 10. You probably want to have some
         // more complex logic here.
         // will change this later
-        enemyStatusHUD.SetHP(enemyStatus, 10);
+        enemyStatusHUD.SetEnemyHP(currEnemy, 10);
 
-        if (enemyStatus.health <= 0)
+        if (currEnemy.hp <= 0)
         {
             // if the enemy health drops to 0 
             // we won!
@@ -140,22 +128,17 @@ public class BattleSystemManager : MonoBehaviour
             yield return StartCoroutine(EnemyTurn());
         }
     }
-
     IEnumerator EnemyTurn()
     {
         // as before, decrease playerhealth by a fixed
         // amount of 10. You probably want to have some
         // more complex logic here.
         //will also change this later
-        playerStatusHUD.SetHP(playerStatus, 10);
-
-        // play attack animation by triggering
-        // it inside the enemy animator
-        enemy.GetComponent<Animator>().SetTrigger("Attack");
+        playerStatusHUD.SetHP(currPlayer, currEnemy.dmg);
 
         yield return new WaitForSeconds(2);
 
-        if (playerStatus.health <= 0)
+        if (currPlayer.hp <= 0)
         {
             // if the player health drops to 0 
             // we have lost the battle...
@@ -181,7 +164,7 @@ public class BattleSystemManager : MonoBehaviour
             // of message or play a victory fanfare
             // here
             yield return new WaitForSeconds(2);
-            Debug.Log("Won");
+            Debug.Log("Won!");
         }
         // otherwise check if we lost
         // You probably want to display some kind of
@@ -190,8 +173,7 @@ public class BattleSystemManager : MonoBehaviour
         else if (battleState == BattleState.LOST)
         {
             yield return new WaitForSeconds(2);
-            Debug.Log("Lost");
+            Debug.Log("LOST :c");
         }
     }
 }
-*/

@@ -2,5 +2,14 @@
     "hp": 40,
     "mp": 150,
     "role": 4,
-    "bio": "A fierce alchemist Wizard"
+    "bio": "A fierce alchemist Wizard",
+    "spell": {
+        "name": "firebolt",
+        "power": 10,
+        "manacost": 10,
+        "level": 1,
+        "type": 0,
+        "target": 2,
+        "description": "Shoots a small fireball"
+    }
 }

@@ -16,6 +16,8 @@ public class Spells
 {
     public String name;
     public int power;
+    public int manacost;
+    public int level;
     public enum Type { FIRE, ARCANE, NECROTIC, PLASMA, POISON, EARTH };
     public Type type;
     public enum Target { SELF, ALLY, ENEMY, ALLENEMY, ALL };
