@@ -41,7 +41,7 @@ public class StatusHUD : MonoBehaviour
         int currHealth = enemy.hp;
         int maxHealth = enemy.maxHp;
 
-        GameObject.Find("HP").GetComponent<TextMeshProUGUI>().text = currHealth + "/" + maxHealth;
+        hpValue.GetComponent<TextMeshProUGUI>().text = currHealth + "/" + maxHealth;
     }
     public void SetEnemyHP(CurrEnemy enemy, int hp)
     {

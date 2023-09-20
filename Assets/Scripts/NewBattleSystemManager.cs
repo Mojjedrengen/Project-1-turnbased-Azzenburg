@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public enum BattleState { START, PLAYERTURN, ENEMYTURN, WIN, LOST };
 public class NewBattleSystemManager : MonoBehaviour
 {
+    public GameObject turn;
+
     public GameObject player;
     public GameObject enemy;
 
@@ -28,7 +31,7 @@ public class NewBattleSystemManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        turn.GetComponent<TextMeshProUGUI>().text = battleState.ToString();
     }
 
     IEnumerator BeginBattle()
@@ -104,7 +107,13 @@ public class NewBattleSystemManager : MonoBehaviour
 
     IEnumerator PlayerAttack(int i)
     {
-        yield return new WaitForSeconds(2);
+        // trigger the execution of attack animation
+        // in 'BattlePresence' animator
+        player.GetComponent<Animator>().SetTrigger("Attack");
+
+        yield return new WaitForSeconds(1);
+
+        player.GetComponent<Animator>().SetTrigger("Idle");
 
         // decrease enemy health by a fixed
         // amount of 10. You probably want to have some
@@ -136,7 +145,13 @@ public class NewBattleSystemManager : MonoBehaviour
         //will also change this later
         playerStatusHUD.SetHP(currPlayer, currEnemy.dmg);
 
-        yield return new WaitForSeconds(2);
+        // play attack animation by triggering
+        // it inside the enemy animator
+        enemy.GetComponent<Animator>().SetTrigger("Attack");
+
+        yield return new WaitForSeconds(1);
+
+        enemy.GetComponent<Animator>().SetTrigger("Idle");
 
         if (currPlayer.hp <= 0)
         {
