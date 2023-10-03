@@ -16,7 +16,9 @@ public class CurrChar
     public int mp = charSheet.player.mp;
     public int maxMp = charSheet.player.mp;
 
-    public string role = "" + charSheet.player.role;
+    public string role = charSheet.player.role.ToString();
+
+    public string name = charSheet.charName;
 }
 
 public class CurrEnemy

@@ -36,8 +36,10 @@ public class NewBattleSystemManager : MonoBehaviour
 
     IEnumerator BeginBattle()
     {
+        Debug.Log(currPlayer.name);
+        player.GetComponent<SpriteRenderer>().sprite = (Sprite)Resources.Load(currPlayer.name, typeof(Sprite));
         //makes them invisible in the start
-        enemy.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
+        enemy.GetComponent<SpriteRenderer>().color = new Color(0, 0,0, 0);
         player.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
 
         // Sets up the HUD

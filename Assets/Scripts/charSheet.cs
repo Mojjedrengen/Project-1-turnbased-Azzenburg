@@ -15,6 +15,7 @@ public class charSheet : MonoBehaviour
     public TextMeshProUGUI bio;
     int charIndex = 0;
     public idex i;
+    public static string charName;
     // Start is called before the first frame update
     void Start()
     {
@@ -66,5 +67,6 @@ public class charSheet : MonoBehaviour
         role.text = "School : " + player.role;
         bio.text = player.bio;
         img.sprite = (Sprite)Resources.Load(i.index[charIndex], typeof(Sprite));
+        charName = i.index[charIndex];
     }
 }
