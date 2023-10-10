@@ -16,6 +16,8 @@ public class charSheet : MonoBehaviour
     int charIndex = 0;
     public idex i;
     public static string charName;
+    public CurrChar currchar;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -68,5 +70,14 @@ public class charSheet : MonoBehaviour
         bio.text = player.bio;
         img.sprite = (Sprite)Resources.Load(i.index[charIndex], typeof(Sprite));
         charName = i.index[charIndex];
+
+        currchar.spellList[1] = player.spell;
+        currchar.hp = player.hp;
+        currchar.maxHp = player.hp;
+        currchar.maxMp = player.mp;
+        currchar.mp = player.mp;
+        currchar.role = player.role.ToString();
+        currchar.name = charName;
+        currchar.pos = new Vector2(0.0f, 0.0f);
     }
 }

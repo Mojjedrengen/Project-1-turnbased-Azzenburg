@@ -2060,6 +2060,7 @@ MonoBehaviour:
   turn: {fileID: 1995238581}
   player: {fileID: 1322570307}
   enemy: {fileID: 390938081}
+  currPlayer: {fileID: 11400000, guid: 317ec0535ee08794a8c8e3cbbbe8f87e, type: 2}
   playerStatusHUD: {fileID: 1042535871}
   enemyStatusHUD: {fileID: 241092549}
 --- !u!1 &1945493975

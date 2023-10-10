@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public enum BattleState { START, PLAYERTURN, ENEMYTURN, WIN, LOST };
 public class NewBattleSystemManager : MonoBehaviour
@@ -11,7 +12,8 @@ public class NewBattleSystemManager : MonoBehaviour
     public GameObject player;
     public GameObject enemy;
 
-    public static CurrChar currPlayer = new CurrChar();
+    //public static CurrChar currPlayer = new CurrChar();
+    public CurrChar currPlayer;
     public CurrEnemy currEnemy = new CurrEnemy();
 
     public StatusHUD playerStatusHUD;
@@ -182,6 +184,7 @@ public class NewBattleSystemManager : MonoBehaviour
             // here
             yield return new WaitForSeconds(2);
             Debug.Log("Won!");
+            SceneManager.LoadScene(2);
         }
         // otherwise check if we lost
         // You probably want to display some kind of

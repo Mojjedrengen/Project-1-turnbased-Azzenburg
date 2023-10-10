@@ -1627,11 +1627,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1fa2df36d729fc41a2ec569603e381e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player:
-    hp: 0
-    mp: 0
-    role: 0
-    bio: 
   img: {fileID: 1230839976}
   hp: {fileID: 952213392}
   mp: {fileID: 442811645}
@@ -1639,6 +1634,7 @@ MonoBehaviour:
   bio: {fileID: 2133490052}
   i:
     index: []
+  currchar: {fileID: 11400000, guid: 317ec0535ee08794a8c8e3cbbbe8f87e, type: 2}
 --- !u!114 &1644326395
 MonoBehaviour:
   m_ObjectHideFlags: 0
