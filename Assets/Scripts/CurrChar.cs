@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.IO;
+using JetBrains.Annotations;
+
 [Serializable]
 
 
@@ -25,6 +28,8 @@ public class CurrChar : ScriptableObject
 
     public Vector2 pos = new Vector2(0.0f, 0.0f);
 
+    public int coins = 10;
+
 
     /*public int hp = charSheet.player.hp;
     public int maxHp = charSheet.player.hp;
@@ -38,7 +43,26 @@ public class CurrChar : ScriptableObject
 
 public class CurrEnemy
 {
-    public int hp = 50;
-    public int maxHp = 50;
-    public int dmg = 5;
+    public Enemy enemy;
+    public String name;
+    public int dmg;
+    public int hp;
+    public int maxHp;
+    public int xp;
+    public int coins;
+    public CurrEnemy(String _name) 
+    {
+        string path = "Assets/Resources/Enemies/" + _name + ".json";
+        StreamReader r = new StreamReader(path);
+        string temp = r.ReadToEnd();
+        r.Close();
+        enemy = JsonUtility.FromJson<Enemy>(temp);
+
+        name = enemy.name;
+        dmg = enemy.power;
+        hp = enemy.hp;
+        maxHp = enemy.hp;
+        xp = enemy.xp;
+        coins = enemy.coins;
+    }
 }

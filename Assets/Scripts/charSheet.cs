@@ -79,5 +79,6 @@ public class charSheet : MonoBehaviour
         currchar.role = player.role.ToString();
         currchar.name = charName;
         currchar.pos = new Vector2(0.0f, 0.0f);
+        currchar.coins = 10;
     }
 }

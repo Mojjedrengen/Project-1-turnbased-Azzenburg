@@ -14,7 +14,7 @@ public class NewBattleSystemManager : MonoBehaviour
 
     //public static CurrChar currPlayer = new CurrChar();
     public CurrChar currPlayer;
-    public CurrEnemy currEnemy = new CurrEnemy();
+    public CurrEnemy currEnemy = new CurrEnemy(EnemyMove.name);
 
     public StatusHUD playerStatusHUD;
     public StatusHUD enemyStatusHUD;
@@ -40,8 +40,9 @@ public class NewBattleSystemManager : MonoBehaviour
     {
         Debug.Log(currPlayer.name);
         player.GetComponent<SpriteRenderer>().sprite = (Sprite)Resources.Load(currPlayer.name, typeof(Sprite));
+        enemy.GetComponent<SpriteRenderer>().sprite = (Sprite)Resources.Load(EnemyMove.name, typeof(Sprite));
         //makes them invisible in the start
-        enemy.GetComponent<SpriteRenderer>().color = new Color(0, 0,0, 0);
+        enemy.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
         player.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
 
         // Sets up the HUD

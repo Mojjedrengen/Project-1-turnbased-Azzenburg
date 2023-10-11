@@ -24,3 +24,12 @@ public class Spells
     public Target target;
     public String description;
 }
+
+public class Enemy
+{
+    public String name;
+    public int power;
+    public int hp;
+    public int xp;
+    public int coins;
+}
