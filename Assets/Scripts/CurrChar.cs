@@ -21,6 +21,8 @@ public class CurrChar : ScriptableObject
     public int maxHp = 100;
     public int mp = 100;
     public int maxMp = 100;
+    public int xp = 0;
+    public int lvl = 1;
 
     public string role = "FIRE";
 

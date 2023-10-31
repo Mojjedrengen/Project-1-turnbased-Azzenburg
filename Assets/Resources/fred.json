@@ -1,6 +1,8 @@
 {
     "hp": 50,
-    "mp": 140,
+  "mp": 140,
+  "hpGrowth": 3,
+    "mpGrowth": 13,
     "role": 2,
     "bio": "A fierce  Necromancer",
     "spell": {

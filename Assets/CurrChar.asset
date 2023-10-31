@@ -12,11 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96a883857fe71a04d85f5f5a2708129b, type: 3}
   m_Name: CurrChar
   m_EditorClassIdentifier: 
-  hp: 30
+  hp: 40
   maxHp: 50
   mp: 140
   maxMp: 140
+  xp: 100
+  lvl: 1
   role: Necromancer
   name: fred
-  pos: {x: 4.9999976, y: 0}
+  pos: {x: 3.07, y: 0.099999994}
   coins: 10

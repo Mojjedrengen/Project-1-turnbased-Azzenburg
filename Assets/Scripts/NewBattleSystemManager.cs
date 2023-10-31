@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using System.IO;
 
 public enum BattleState { START, PLAYERTURN, ENEMYTURN, WIN, LOST };
 public class NewBattleSystemManager : MonoBehaviour
@@ -186,6 +187,13 @@ public class NewBattleSystemManager : MonoBehaviour
             yield return new WaitForSeconds(2);
             Debug.Log("Won!");
             SceneManager.LoadScene(2);
+
+            currPlayer.xp += currEnemy.xp;
+
+            if (currPlayer.xp >= currPlayer.lvl*144*Mathf.Pow(1.01f, currPlayer.lvl))
+            {
+                levelUp();
+            }
         }
         // otherwise check if we lost
         // You probably want to display some kind of
@@ -196,5 +204,25 @@ public class NewBattleSystemManager : MonoBehaviour
             yield return new WaitForSeconds(2);
             Debug.Log("LOST :c");
         }
+    }
+
+    private void levelUp()
+    {
+        character chara;
+
+        string path = "Assets/Resources/" + currPlayer.name + ".json";
+        StreamReader r = new StreamReader(path);
+        string temp = r.ReadToEnd();
+        r.Close();
+        chara = JsonUtility.FromJson<character>(temp);
+
+
+        currPlayer.lvl++;
+
+        currPlayer.hp += chara.hpGrowth;
+        currPlayer.maxMp += chara.hpGrowth;
+
+        currPlayer.mp += chara.mpGrowth;
+        currPlayer.maxMp += chara.mpGrowth;
     }
 }

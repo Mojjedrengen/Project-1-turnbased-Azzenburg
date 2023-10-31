@@ -1,6 +1,8 @@
 {
     "hp": 100,
-    "mp": 90,
+  "mp": 90,
+  "hpGrowth": 9,
+    "mpGrowth": 7,
     "role": 0,
     "bio": "A fierce fire Wizard",
     "spell": {

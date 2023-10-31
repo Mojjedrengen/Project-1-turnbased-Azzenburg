@@ -1,6 +1,8 @@
 {
     "hp": 40,
-    "mp": 150,
+  "mp": 150,
+  "hpGrowth": 2,
+  "mpGrowth": 14,
     "role": 4,
     "bio": "A fierce alchemist Wizard",
     "spell": {

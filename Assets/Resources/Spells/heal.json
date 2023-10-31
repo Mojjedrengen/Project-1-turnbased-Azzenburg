@@ -1,0 +1,9 @@
+{
+    "name": "heal",
+    "power": 30,
+    "manacost": 20,
+    "level": 2,
+    "type": 1,
+    "target": 0,
+    "description": "Heals you"
+}
