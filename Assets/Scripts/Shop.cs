@@ -9,9 +9,11 @@ public class Shop : MonoBehaviour
 {
     public GameObject shopPop;
     public bool shopBool = false;
+    public CurrChar currPlayer;
 
     public idex i;
-    public Spells[] allSpells;
+    public List<Spells> allSpells = new List<Spells>();
+    private int spellLength = 0;
 
     public TextMeshProUGUI name;
     public TextMeshProUGUI type;
@@ -64,24 +66,40 @@ public class Shop : MonoBehaviour
         ir.Close();
         i = JsonUtility.FromJson<idex>(itemp);
 
-        allSpells = new Spells[i.index.Length];
-
-        for (int j = 0; j < allSpells.Length-1; j++)
+        for (int j = 0; j < i.index.Length; j++)
         {
+            Spells tempSpell = new Spells();
+            bool isOnSpellList = false;
+
             string path = "Assets/Resources/Spells/" + i.index[j] + ".json";
             StreamReader r = new StreamReader(path);
             string temp = r.ReadToEnd();
             r.Close();
-            allSpells[j] = JsonUtility.FromJson<Spells>(temp);
+            tempSpell = JsonUtility.FromJson<Spells>(temp);
 
-
+            Debug.Log("CurrSpell: " + tempSpell.name);
+            for (int index = 0; index > currPlayer.spellList.Length; index++)
+            {
+                Debug.Log("player: " + currPlayer.spellList[index].name);
+                if (tempSpell.name == currPlayer.spellList[index].name)
+                {
+                    isOnSpellList = true;
+                }
+               
+            }
+            if (!isOnSpellList) 
+            {
+                allSpells.Add(tempSpell);
+            }
+            isOnSpellList = false;
         }
+        Debug.Log(allSpells.Count);
     }
     public void nextItem()
     {
         if (shopBool == true)
         {
-            if (shopIndex <= allSpells.Length - 1)
+            if (shopIndex <= spellLength - 1)
             {
                 shopIndex++;
             }
@@ -103,7 +121,7 @@ public class Shop : MonoBehaviour
             }
             else
             {
-                shopIndex = allSpells.Length - 1;
+                shopIndex = spellLength - 1;
             }
             info();
         }
