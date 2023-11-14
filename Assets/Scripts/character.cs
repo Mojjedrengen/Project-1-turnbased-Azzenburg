@@ -11,11 +11,26 @@ public class character
     public Role role;
     public String bio;
 
-    public Spells spell;
+    public Spells spell = new Spells();
 }
 
 public class Spells
 {
+    /*
+    public Spells(string _name, int _power, int _manacost, int _level, Type _type, Target _target, string _desc) 
+    {
+        name = _name;
+        power = _power;
+        manacost = _manacost;
+        level = _level;
+        type = _type;
+        target = _target;
+        description = _desc;
+    }
+    public Spells()
+    {
+
+    }*/
     public String name;
     public int power;
     public int manacost;

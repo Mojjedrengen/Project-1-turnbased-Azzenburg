@@ -60,6 +60,7 @@ public class Shop : MonoBehaviour
 
     private void getSpells()
     {
+        allSpells.Clear();
         string charIndexPath = "Assets/Resources/Spells/index.json";
         StreamReader ir = new StreamReader(charIndexPath);
         string itemp = ir.ReadToEnd();
@@ -78,14 +79,18 @@ public class Shop : MonoBehaviour
             tempSpell = JsonUtility.FromJson<Spells>(temp);
 
             Debug.Log("CurrSpell: " + tempSpell.name);
-            for (int index = 0; index > currPlayer.spellList.Length; index++)
+            Debug.Log(currPlayer.spellList.Count);
+            Debug.Log("You have: " + currPlayer.spellList[0].name);
+
+            for (int index = 0; index <= currPlayer.spellList.Count-1; index++)
             {
                 Debug.Log("player: " + currPlayer.spellList[index].name);
                 if (tempSpell.name == currPlayer.spellList[index].name)
                 {
                     isOnSpellList = true;
+                    Debug.Log(tempSpell.name);
+
                 }
-               
             }
             if (!isOnSpellList) 
             {

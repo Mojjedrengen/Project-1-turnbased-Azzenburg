@@ -16,7 +16,7 @@ public class CurrChar : ScriptableObject
     {
         charSheet.player.spell
     };*/
-    public Spells[] spellList = new Spells[4];
+    public List<Spells> spellList = new List<Spells>();
     public int hp = 100;
     public int maxHp = 100;
     public int mp = 100;

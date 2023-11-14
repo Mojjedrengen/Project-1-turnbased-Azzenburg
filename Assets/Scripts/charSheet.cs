@@ -70,8 +70,14 @@ public class charSheet : MonoBehaviour
         bio.text = player.bio;
         img.sprite = (Sprite)Resources.Load(i.index[charIndex], typeof(Sprite));
         charName = i.index[charIndex];
+        Spells tempSpell = new Spells();
+        tempSpell.name = player.spell.name;
+      //  tempSpell = new Spells(player.spell.name, player.spell.power, player.spell.manacost, player.spell.level, player.spell.type, player.spell.target, player.spell.description);
+        Debug.Log("Spell = " + tempSpell.name);
+        Debug.Log(tempSpell);
 
-        currchar.spellList[1] = player.spell;
+        currchar.spellList.Clear();
+        currchar.spellList.Add(tempSpell);
         currchar.hp = player.hp;
         currchar.maxHp = player.hp;
         currchar.maxMp = player.mp;
@@ -80,5 +86,7 @@ public class charSheet : MonoBehaviour
         currchar.name = charName;
         currchar.pos = new Vector2(0.0f, 0.0f);
         currchar.coins = 10;
+
+        
     }
 }
