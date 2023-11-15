@@ -1,0 +1,9 @@
+{
+    "name": "Chill Touch",
+    "power": 25,
+    "manacost": 15,
+    "level": 2,
+    "type": 2,
+    "target": 2,
+    "description": "Deals necrotic damage your enemy"
+}

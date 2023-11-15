@@ -14,9 +14,9 @@ public class character
     public Spells spell = new Spells();
 }
 
+[Serializable]
 public class Spells
-{
-    /*
+{ 
     public Spells(string _name, int _power, int _manacost, int _level, Type _type, Target _target, string _desc) 
     {
         name = _name;
@@ -29,8 +29,8 @@ public class Spells
     }
     public Spells()
     {
-
-    }*/
+        
+    }
     public String name;
     public int power;
     public int manacost;
@@ -41,7 +41,7 @@ public class Spells
     public Target target;
     public String description;
 }
-
+[Serializable]
 public class Enemy
 {
     public String name;

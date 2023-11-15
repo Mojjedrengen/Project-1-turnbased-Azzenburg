@@ -1,0 +1,9 @@
+{
+    "name": "Rock Smash",
+    "power": 70,
+    "manacost": 50,
+    "level": 3,
+    "type": 5,
+    "target": 2,
+    "description": "Throw a huge rock at your opponment"
+}

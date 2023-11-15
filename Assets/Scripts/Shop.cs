@@ -22,6 +22,13 @@ public class Shop : MonoBehaviour
     public TextMeshProUGUI targeting;
     public TextMeshProUGUI cost;
 
+    public TextMeshProUGUI spell1;
+    public TextMeshProUGUI spell2;
+    public TextMeshProUGUI spell3;
+    public TextMeshProUGUI spell4;
+
+    public TextMeshProUGUI playerbalance;
+
     private int shopIndex = 0;
 
     // Start is called before the first frame update
@@ -99,6 +106,7 @@ public class Shop : MonoBehaviour
             isOnSpellList = false;
         }
         Debug.Log(allSpells.Count);
+        spellLength = allSpells.Count;
     }
     public void nextItem()
     {
@@ -131,6 +139,19 @@ public class Shop : MonoBehaviour
             info();
         }
     }
+    public void btnSpell(int i)
+    {
+        if (shopBool == true)
+        {
+            if (currPlayer.coins >= allSpells[shopIndex].level * 50)
+            {
+                currPlayer.coins -= allSpells[shopIndex].level * 50;
+                currPlayer.spellList[i] = allSpells[shopIndex];
+                getSpells();
+                info();
+            }
+        }
+    }
 
     private void info()
     {
@@ -142,6 +163,13 @@ public class Shop : MonoBehaviour
         manacost.text = "Mana Cost: " + allSpells[shopIndex].manacost.ToString();
         targeting.text = "Targeting: " + allSpells[shopIndex].target.ToString();
         cost.text = "Cost: " + spellcost.ToString() + "gp";
+
+        spell1.text = currPlayer.spellList[0].name;
+        spell2.text = currPlayer.spellList[1].name;
+        spell3.text = currPlayer.spellList[2].name;
+        spell4.text = currPlayer.spellList[3].name;
+
+        playerbalance.text = "Your balance: <br><size=+10>" + currPlayer.coins.ToString();
     }
 
 }

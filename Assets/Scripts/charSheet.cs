@@ -70,14 +70,18 @@ public class charSheet : MonoBehaviour
         bio.text = player.bio;
         img.sprite = (Sprite)Resources.Load(i.index[charIndex], typeof(Sprite));
         charName = i.index[charIndex];
+
         Spells tempSpell = new Spells();
-        tempSpell.name = player.spell.name;
-      //  tempSpell = new Spells(player.spell.name, player.spell.power, player.spell.manacost, player.spell.level, player.spell.type, player.spell.target, player.spell.description);
+        tempSpell = player.spell;
+        //Spells tempSpell = new Spells(player.spell.name, player.spell.power, player.spell.manacost, player.spell.level, player.spell.type, player.spell.target, player.spell.description);
         Debug.Log("Spell = " + tempSpell.name);
         Debug.Log(tempSpell);
 
         currchar.spellList.Clear();
-        currchar.spellList.Add(tempSpell);
+        for (int j = 0; j < 4; j++)
+        {
+           currchar.spellList.Add(tempSpell);
+        }
         currchar.hp = player.hp;
         currchar.maxHp = player.hp;
         currchar.maxMp = player.mp;

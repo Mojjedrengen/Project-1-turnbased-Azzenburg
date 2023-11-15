@@ -1,0 +1,9 @@
+{
+    "name": "Plasma Saber",
+    "power": 20,
+    "manacost": 10,
+    "level": 1,
+    "type": 3,
+    "target": 2,
+    "description": "Gain a Plasma sword"
+}
