@@ -12,13 +12,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96a883857fe71a04d85f5f5a2708129b, type: 3}
   m_Name: CurrChar
   m_EditorClassIdentifier: 
-  hp: 50
+  spellList:
+  - name: heal
+    power: 30
+    manacost: 20
+    level: 2
+    type: 1
+    target: 0
+    description: Heals you
+  - name: Plasma Saber
+    power: 20
+    manacost: 10
+    level: 1
+    type: 3
+    target: 2
+    description: Gain a Plasma sword
+  - name: firebolt
+    power: 10
+    manacost: 10
+    level: 1
+    type: 0
+    target: 2
+    description: Shoots a small fireball
+  - name: Chill Touch
+    power: 25
+    manacost: 15
+    level: 2
+    type: 2
+    target: 2
+    description: Deals necrotic damage your enemy
+  hp: 16
   maxHp: 50
-  mp: 140
-  maxMp: 140
-  xp: 100
-  lvl: 1
+  mp: 166
+  maxMp: 172
+  xp: 300
+  lvl: 3
   role: Necromancer
   name: fred
-  pos: {x: 0, y: 0}
-  coins: 10
+  pos: {x: 0, y: 0.9979528}
+  coins: 0
