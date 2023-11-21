@@ -32,6 +32,8 @@ public class CurrChar : ScriptableObject
 
     public int coins = 10;
 
+    public string lastUsed = DateTime.Now.ToString("yyyy/MM/dd");
+
 
     /*public int hp = charSheet.player.hp;
     public int maxHp = charSheet.player.hp;
@@ -54,7 +56,7 @@ public class CurrEnemy
     public int coins;
     public CurrEnemy(String _name) 
     {
-        string path = "Assets/Resources/Enemies/" + _name + ".json";
+        string path = Path.Combine(Application.streamingAssetsPath, "Enemies/" + _name + ".json");
         StreamReader r = new StreamReader(path);
         string temp = r.ReadToEnd();
         r.Close();

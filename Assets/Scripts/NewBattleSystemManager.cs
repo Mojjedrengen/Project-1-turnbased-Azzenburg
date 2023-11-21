@@ -210,7 +210,7 @@ public class NewBattleSystemManager : MonoBehaviour
     {
         character chara;
 
-        string path = "Assets/Resources/" + currPlayer.name + ".json";
+        string path = Path.Combine(Application.streamingAssetsPath, currPlayer.name + ".json");
         StreamReader r = new StreamReader(path);
         string temp = r.ReadToEnd();
         r.Close();

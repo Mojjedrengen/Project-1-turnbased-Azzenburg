@@ -68,7 +68,7 @@ public class Shop : MonoBehaviour
     private void getSpells()
     {
         allSpells.Clear();
-        string charIndexPath = "Assets/Resources/Spells/index.json";
+        string charIndexPath = Path.Combine(Application.streamingAssetsPath, "Spells/index.json");
         StreamReader ir = new StreamReader(charIndexPath);
         string itemp = ir.ReadToEnd();
         ir.Close();
@@ -79,7 +79,7 @@ public class Shop : MonoBehaviour
             Spells tempSpell = new Spells();
             bool isOnSpellList = false;
 
-            string path = "Assets/Resources/Spells/" + i.index[j] + ".json";
+            string path = Path.Combine(Application.streamingAssetsPath, "Spells/" + i.index[j] + ".json");
             StreamReader r = new StreamReader(path);
             string temp = r.ReadToEnd();
             r.Close();

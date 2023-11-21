@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.IO;
+using System;
 
 public class charSheet : MonoBehaviour
 {
@@ -21,7 +22,7 @@ public class charSheet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        string charIndexPath = "Assets/Resources/index.json";
+        string charIndexPath = Path.Combine(Application.streamingAssetsPath, "index.json");
         StreamReader ir = new StreamReader(charIndexPath);
         string itemp = ir.ReadToEnd();
         ir.Close();
@@ -57,7 +58,7 @@ public class charSheet : MonoBehaviour
     }
 
     private void info() {
-        string path = "Assets/Resources/" + i.index[charIndex] + ".json";
+        string path = Path.Combine(Application.streamingAssetsPath, i.index[charIndex] + ".json");
         StreamReader r = new StreamReader(path);
         string temp = r.ReadToEnd();
         r.Close();
@@ -90,7 +91,7 @@ public class charSheet : MonoBehaviour
         currchar.name = charName;
         currchar.pos = new Vector2(0.0f, 0.0f);
         currchar.coins = 10;
+        currchar.lastUsed = DateTime.Now.ToString("yyyy/MM/dd");
 
-        
     }
 }
