@@ -44,6 +44,43 @@ public class CurrChar : ScriptableObject
 
     public string name = charSheet.charName;*/
 }
+[Serializable]
+public class TempSaveChar
+{
+    public List<Spells> spellList;
+    public int hp;
+    public int maxHp;
+    public int mp;
+    public int maxMp;
+    public int xp;
+    public int lvl;
+
+    public string role;
+    public string name;
+    public Vector2 pos;
+    public int coins;
+    public string lastUsed;
+
+    public TempSaveChar(CurrChar _char)
+    {
+        spellList = _char.spellList;
+        hp = _char.hp;
+        maxHp = _char.maxHp;
+        mp = _char.mp;
+        maxMp = _char.maxMp;
+        xp = _char.xp;
+        lvl = _char.lvl;
+        role = _char.role;
+        name = _char.name;
+        pos = _char.pos;
+        coins = _char.coins;
+        lastUsed = DateTime.Now.ToString("yyyy/MM/dd");
+    }
+    public TempSaveChar()
+    {
+
+    }
+}
 
 public class CurrEnemy
 {

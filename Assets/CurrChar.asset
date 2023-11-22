@@ -13,20 +13,6 @@ MonoBehaviour:
   m_Name: CurrChar
   m_EditorClassIdentifier: 
   spellList:
-  - name: heal
-    power: 30
-    manacost: 20
-    level: 2
-    type: 1
-    target: 0
-    description: Heals you
-  - name: Plasma Saber
-    power: 20
-    manacost: 10
-    level: 1
-    type: 3
-    target: 2
-    description: Gain a Plasma sword
   - name: firebolt
     power: 10
     manacost: 10
@@ -34,20 +20,35 @@ MonoBehaviour:
     type: 0
     target: 2
     description: Shoots a small fireball
-  - name: Chill Touch
-    power: 25
-    manacost: 15
-    level: 2
-    type: 2
+  - name: firebolt
+    power: 10
+    manacost: 10
+    level: 1
+    type: 0
     target: 2
-    description: Deals necrotic damage your enemy
-  hp: 16
-  maxHp: 50
-  mp: 166
-  maxMp: 172
-  xp: 300
+    description: Shoots a small fireball
+  - name: firebolt
+    power: 10
+    manacost: 10
+    level: 1
+    type: 0
+    target: 2
+    description: Shoots a small fireball
+  - name: firebolt
+    power: 10
+    manacost: 10
+    level: 1
+    type: 0
+    target: 2
+    description: Shoots a small fireball
+  hp: 50
+  maxHp: 70
+  mp: 120
+  maxMp: 120
+  xp: 400
   lvl: 3
-  role: Necromancer
-  name: fred
-  pos: {x: 0, y: 0.9979528}
-  coins: 0
+  role: Arcane
+  name: kryger
+  pos: {x: -5.5749435, y: 1.9076561}
+  coins: 10
+  lastUsed: 2023-11-22

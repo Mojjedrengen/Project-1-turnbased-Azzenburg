@@ -2496,9 +2496,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currPlayer: {fileID: 11400000, guid: 317ec0535ee08794a8c8e3cbbbe8f87e, type: 2}
   popop: {fileID: 1030263695}
-  btn1: {fileID: 1118317025}
-  btn2: {fileID: 1087887949}
-  btn3: {fileID: 2036699485}
+  btn:
+  - {fileID: 1118317025}
+  - {fileID: 1087887949}
+  - {fileID: 2036699485}
 --- !u!1 &733257218
 GameObject:
   m_ObjectHideFlags: 0
